@@ -2,13 +2,13 @@ package ko2ic.sample.di
 
 import dagger.Module
 import dagger.android.ContributesAndroidInjector
-import ko2ic.sample.ui.activities.MainActivity
+import ko2ic.sample.ui.fragments.SecondFragment
 
 @Module
-abstract class AndroidModule {
+abstract class FragmentModule {
 
     @ActivityScope
     @ContributesAndroidInjector
-    abstract fun contributeMainActivity(): MainActivity
+    abstract fun contributeSecondFragment(): SecondFragment
 
 }

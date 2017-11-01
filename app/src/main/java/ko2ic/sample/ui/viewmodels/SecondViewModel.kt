@@ -6,13 +6,13 @@ import ko2ic.sample.domains.MainDomain
 import javax.inject.Inject
 
 @ActivityScope
-class MainViewModel @Inject constructor() {
+class SecondViewModel @Inject constructor() {
 
     @Inject
     lateinit var domain: MainDomain
 
     fun start(value: String) {
-        Log.d(MainViewModel::class.java.simpleName, "${this}:${value}")
+        Log.d(SecondViewModel::class.java.simpleName, "${this}:${value}")
         domain.call()
     }
 }

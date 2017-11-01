@@ -8,7 +8,7 @@ import javax.inject.Singleton
 
 
 @Singleton
-@Component(modules = arrayOf(AndroidInjectionModule::class, AndroidModule::class))
+@Component(modules = arrayOf(AndroidInjectionModule::class, ActivityModule::class, FragmentModule::class))
 interface AppComponent {
     @Component.Builder
     interface Builder {
@@ -19,6 +19,4 @@ interface AppComponent {
     }
 
     fun inject(app: App)
-
-
 }
