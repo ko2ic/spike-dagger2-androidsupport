@@ -13,7 +13,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         findViewById<Button>(R.id.second).setOnClickListener { _ ->
-            startActivity(SecondActivity.intent(this, "message"))
+            startActivity(SecondActivity.intentClearTop(this, "message"))
         }
     }
 }

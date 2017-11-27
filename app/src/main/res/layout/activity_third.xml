@@ -5,9 +5,24 @@
     android:layout_height="match_parent"
     tools:context="ko2ic.sample.ui.activities.ThirdActivity">
 
-    <TextView
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="test" />
+        android:orientation="vertical">
+
+        <Button
+            android:id="@+id/clear_top"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK" />
+
+        <Button
+            android:id="@+id/clear_task"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK" />
+
+    </LinearLayout>
+
 
 </android.support.constraint.ConstraintLayout>

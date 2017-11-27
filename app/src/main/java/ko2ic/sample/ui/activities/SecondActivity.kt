@@ -19,12 +19,20 @@ import javax.inject.Inject
 class SecondActivity : AppCompatActivity(), HasFragmentInjector {
 
     companion object {
-        fun intent(context: Context, message: String) = Intent(context, SecondActivity::class.java).apply {
+        fun intentClearTop(context: Context, message: String) = Intent(context, SecondActivity::class.java).apply {
             flags = Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK
             putExtras(Bundle().apply {
                 putString(KEY_MESSAGE, message)
             })
         }
+
+        fun intentClearTask(context: Context, message: String) = Intent(context, SecondActivity::class.java).apply {
+            flags = Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
+            putExtras(Bundle().apply {
+                putString(KEY_MESSAGE, message)
+            })
+        }
+
     }
 
     @Inject
@@ -53,5 +61,23 @@ class SecondActivity : AppCompatActivity(), HasFragmentInjector {
         // Using viewModel from here because of kill activity.
         viewModel.start("from activity")
         setContentView(R.layout.activity_second)
+    }
+
+    override fun onStart() {
+        super.onStart()
+        val message = intent.getStringExtra(KEY_MESSAGE)
+        print(message)
+    }
+
+    override fun onRestart() {
+        super.onRestart()
+        val message = intent.getStringExtra(KEY_MESSAGE)
+        print(message)
+    }
+
+    override fun onNewIntent(intent: Intent) {
+        super.onNewIntent(intent)
+        val message = intent.getStringExtra(KEY_MESSAGE)
+        print(message)
     }
 }
